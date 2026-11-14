@@ -1,0 +1,25 @@
+# /etc/systemd/system/perfect-intern.service
+[Unit]
+Description=The Perfect Intern API
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=perfectintern
+Group=perfectintern
+WorkingDirectory=/opt/perfect-intern/server
+EnvironmentFile=/etc/perfect-intern.env
+ExecStart=/usr/bin/node src/server.js
+Restart=always
+RestartSec=3
+# Hardening: the API only needs to write to its uploads folder.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/perfect-intern
+# Logs go to journald: journalctl -u perfect-intern -f
+
+[Install]
+WantedBy=multi-user.target
