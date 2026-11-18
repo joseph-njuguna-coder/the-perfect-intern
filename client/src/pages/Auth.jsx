@@ -4,12 +4,27 @@ import { api } from '../lib/api.js';
 import { useApi } from '../lib/useApi.js';
 import { useAuth } from '../context/AuthContext.jsx';
 import Field from '../components/Field.jsx';
+import Img from '../components/Img.jsx';
 
-const Shell = ({ title, subtitle, children, wide }) => (
-  <div className={`container-x py-14 ${wide ? 'max-w-2xl' : 'max-w-md'}`}>
-    <h1 className="text-3xl font-extrabold">{title}</h1>
-    {subtitle && <p className="mt-2 text-slate2">{subtitle}</p>}
-    <div className="mt-8 rounded-2xl border border-line bg-white p-6">{children}</div>
+const Shell = ({ title, subtitle, children, wide, image }) => (
+  <div className="container-x py-10 sm:py-14">
+    <div className={`mx-auto grid gap-8 ${image ? 'max-w-5xl lg:grid-cols-[1fr_380px]' : wide ? 'max-w-2xl' : 'max-w-md'}`}>
+      <div className="min-w-0">
+        <h1 className="text-3xl font-extrabold">{title}</h1>
+        {subtitle && <p className="mt-2 text-slate2">{subtitle}</p>}
+        <div className="mt-8 rounded-2xl border border-line bg-white p-6">{children}</div>
+      </div>
+      {image && (
+        <aside className="relative hidden overflow-hidden rounded-3xl lg:sticky lg:top-24 lg:block lg:h-[34rem] lg:self-start" aria-hidden="true">
+          <Img name={image} sizes="380px" className="kb absolute inset-0 h-full w-full" alt="" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
+          <div className="absolute inset-x-6 bottom-6 text-white">
+            <p className="font-display text-2xl font-extrabold leading-tight">Your professional journey starts here</p>
+            <p className="mt-2 text-sm text-ink-100">One profile. Verified internships. Every application tracked.</p>
+          </div>
+        </aside>
+      )}
+    </div>
   </div>
 );
 const Alert = ({ kind = 'error', children }) => children ? (
@@ -35,7 +50,7 @@ export function Login() {
   }
 
   return (
-    <Shell title="Sign in" subtitle="Welcome back.">
+    <Shell title="Sign in" subtitle="Welcome back." image="phone-call">
       <form onSubmit={submit} className="space-y-4" noValidate>
         <Field label="Email address" name="email" type="email" autoComplete="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} error={st.fields.email} />
         <Field label="Password" name="password" type="password" autoComplete="current-password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} error={st.fields.password} />
@@ -81,7 +96,7 @@ export function Register() {
   }
 
   return (
-    <Shell wide title={role === 'company' ? 'Register your company' : 'Create your intern account'} subtitle="Free to register. We will email you a link to verify your address.">
+    <Shell wide image={role === 'company' ? 'hiring-manager' : 'student-laptop'} title={role === 'company' ? 'Register your company' : 'Create your intern account'} subtitle="Free to register. We will email you a link to verify your address.">
       <div className="mb-6 grid grid-cols-2 gap-1 rounded-lg bg-paper p-1" role="tablist">
         {['intern', 'company'].map((r) => (
           <button key={r} type="button" role="tab" aria-selected={role === r} onClick={() => setParams({ role: r })} className={`rounded-md py-2 text-sm font-semibold ${role === r ? 'bg-white shadow-sm' : 'text-slate2'}`}>{r === 'intern' ? "I'm an intern" : "I'm a company"}</button>

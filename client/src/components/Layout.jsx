@@ -82,6 +82,7 @@ export default function Layout() {
               <li><Link className="hover:text-white" to="/internships">Browse internships</Link></li>
               <li><Link className="hover:text-white" to="/for-companies">For companies</Link></li>
               <li><Link className="hover:text-white" to="/how-it-works">How it works</Link></li>
+              <li><Link className="hover:text-white" to="/resources">Resources</Link></li>
             </ul>
           </div>
           <div>
@@ -89,7 +90,7 @@ export default function Layout() {
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link className="hover:text-white" to="/about">About us</Link></li>
               <li><Link className="hover:text-white" to="/contact">Contact us</Link></li>
-              <li><Link className="hover:text-white" to="/privacy">Privacy and data protection</Link></li>
+              <li><Link className="hover:text-white" to="/privacy">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>

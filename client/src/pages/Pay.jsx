@@ -115,6 +115,7 @@ export default function Pay() {
         <li>You approve an M-Pesa prompt on your phone with your PIN.</li>
         <li>Access activates only after Safaricom confirms the payment.</li>
         <li>Payment does not guarantee an interview, placement or employment.</li>
+        <li>The access fee is not refunded if an application is unsuccessful, because companies make the final decision.</li>
       </ul>
       <form onSubmit={pay} className="mt-6 space-y-4" noValidate>
         <Field label="M-Pesa phone number" name="phone" type="tel" inputMode="tel" autoComplete="tel" hint="The Safaricom number that will receive the prompt" value={phone} onChange={(e) => setPhone(e.target.value)} error={st.fields.phone} />

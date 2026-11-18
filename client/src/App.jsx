@@ -6,7 +6,9 @@ import Home from './pages/Home.jsx';
 import Internships from './pages/Internships.jsx';
 import InternshipDetail from './pages/InternshipDetail.jsx';
 import Pay from './pages/Pay.jsx';
-import { ForCompanies, HowItWorks, About, Contact, Privacy, NotFound } from './pages/Static.jsx';
+import { ForCompanies, HowItWorks, About, Contact, NotFound } from './pages/Static.jsx';
+import Privacy from './pages/Privacy.jsx';
+import Resources from './pages/Resources.jsx';
 import { Login, Register, VerifyEmail, ForgotPassword, ResetPassword } from './pages/Auth.jsx';
 import DashboardLayout from './pages/dashboard/DashboardLayout.jsx';
 import Overview from './pages/dashboard/Overview.jsx';
@@ -24,8 +26,12 @@ import { Applicants, ApplicantDetail } from './pages/dashboard/Applicants.jsx';
 import { Saved, Applications, Notifications, Settings } from './pages/dashboard/Others.jsx';
 
 function ScrollTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) { const t = setTimeout(() => document.querySelector(hash)?.scrollIntoView(), 50); return () => clearTimeout(t); }
+    window.scrollTo(0, 0);
+    return undefined;
+  }, [pathname, hash]);
   return null;
 }
 
@@ -50,6 +56,7 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />
+          <Route path="resources" element={<Resources />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="verify-email" element={<VerifyEmail />} />

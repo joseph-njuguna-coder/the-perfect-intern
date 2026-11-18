@@ -125,3 +125,14 @@ Applied the supplied logo and brand: new palette sampled from the logo, emblem p
 # Email delivery update
 
 Added HTTPS email providers (EMAIL_PROVIDER=brevo or resend) because Render's free tier blocks outbound SMTP ports 25, 465 and 587. All email calls now time out after about 12 seconds (previously an unreachable SMTP server could hold a sign-up request for minutes), failures record a readable reason in email_logs, and `npm run test:email -- you@example.com` (in /server) sends a test message and prints the exact error. Production start-up now requires either SMTP_HOST or a provider API key.
+
+
+# Branding and imagery update (photos, privacy policy, resources)
+
+- Added the eight supplied photos as responsive WebP (client/public/images, client/src/images.js, components Img and Reveal) with scroll-reveal and slow-drift animation that respects "reduce motion".
+- Home hero rebuilt: much larger Find Internships and Post an Internship buttons; an animated description that slides between the student and company pitch (auto-rotates, pauses on hover/focus, pause and manual controls); crossfading photo with a live listing or company benefit chips.
+- New Privacy Policy page built from your policy text (client/src/pages/Privacy.jsx). Corrected: the leftover reference to another company, the claim that Google Analytics and advertising are in use, the California-style "privacy rights" section (replaced by Kenya Data Protection Act rights and the Office of the Data Protection Commissioner), data-sharing wording (the app shares a profile only with companies an intern applies to), and added what the platform really collects (CV, payments).
+- FAQ rewritten with your answers (Kenyan company, legitimate, who it is for, why a fee, no selection by us, no refund). The no-refund rule is now also stated on the Pay and How It Works pages.
+- New Resources page (client/src/pages/Resources.jsx) with your links, cleaned of tracking parameters, and benefits/definition/expectations rewritten in our own words (adapted from UMBC Career Center guidance).
+- Images were generated with a one-off script that is not part of the app: it resized each source photo to 400 px and full-width WebP at quality 80.
+- Login and registration pages show a photo on large screens.

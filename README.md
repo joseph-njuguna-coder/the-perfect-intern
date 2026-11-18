@@ -10,6 +10,9 @@ A Kenyan internship and attachment marketplace. Interns register free, browse fr
 | Document | Contents |
 |---|---|
 | `docs/DEPLOY_FREE.md` | Free deployment with GitHub, Render and Neon (demo and sandbox testing) |
+| `docs/MPESA_SANDBOX.md` | M-Pesa sandbox setup, testing and troubleshooting |
+| `docs/DEMO_DATA.md` | Bulk demo data: 1,200 interns, 80 companies, applications and payments |
+| `docs/IMAGES.md` | Where each photo is used, licensing warnings, how to swap photos |
 | `docs/DEPLOYMENT.md` | Step-by-step production deployment, backups, releases, monitoring |
 | `docs/LAUNCH_CHECKLIST.md` | What to verify before going live, including Safaricom go-live |
 | `docs/ARCHITECTURE.md` | Stack, folder map against the original brief, database relationships |
