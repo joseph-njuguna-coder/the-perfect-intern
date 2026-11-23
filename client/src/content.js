@@ -1,8 +1,8 @@
 // PLACEHOLDER CONTENT: replace these with real, consented testimonials before launch.
 export const TESTIMONIALS = [
-  { quote: 'I filled in my profile once and applied to several companies without retyping anything.', name: 'james mwangi', role: 'intern Tech savannah' },
+  { quote: 'I filled in my profile once and applied to several companies without retyping anything.', name: 'James Mwangi', role: 'Intern Tech savannah' },
   { quote: 'Having applicants arrive with a CV, cover letter and a clear status made shortlisting much quicker.', name: 'Judy kyalo', role: 'Hiring Manager' },
-  { quote: 'Knowing exactly where each application stood took the guesswork out of waiting.', name: 'stephen mwikya]', role: 'Data analyst intern' },
+  { quote: 'Knowing exactly where each application stood took the guesswork out of waiting.', name: 'Stephen Mwikya', role: 'Data Analyst Intern' },
 ];
 
 export const FAQS = (fee) => [
